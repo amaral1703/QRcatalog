@@ -1,0 +1,31 @@
+<%- include('../partials/header') %>
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">QR Code</h1>
+        <p class="lead">Here is the QR Code for your product.</p>
+        <hr class="my-4">
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h4>QR Code for <%= product.name %></h4>
+                </div>
+                <div class="card-body">
+                    <input type="hidden" id="qrText" value="<%= product.qr_text %>">
+                    <img id="qrCodeImage" src="<%= qrCode %>" alt="QR Code" class="img-fluid mb-3">
+                    <div class="d-flex justify-content-center">
+                        <a id="downloadQrCode" href="<%= qrCode %>" download="<%= product.sku %>.png" class="btn btn-success me-2">Download QR Code</a>
+                        <button id="printQrCode" class="btn btn-primary">Print QR Code</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/printqrcode.js"></script>
+
+<%- include('../partials/footer') %>
