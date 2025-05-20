@@ -24,7 +24,7 @@ router.post('/products/importExcel', upload.single('excel'), mainController.impo
 router.post('/generateqr/:id', mainController.generateQRCode);
 router.post('/products/search', mainController.search);
 router.post('/products', mainController.store);
-router.post('/products/update:id', mainController.update);
+router.post('/products/update/:id', mainController.update);
 router.post('/products/delete/:id', mainController.delete);
 
 module.exports = router;
