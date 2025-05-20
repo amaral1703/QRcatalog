@@ -43,12 +43,12 @@
 1. Start the development server:
 
    ```bash
-   npm start
+   nodemon index.js or node index.js
    ```
 2. Open your browser and visit:
 
    ```
-   http://localhost:3000
+   http://localhost:8080
    ```
 
 ### 🧑‍💻 Usage
@@ -103,12 +103,12 @@
 1. Inicie o servidor:
 
    ```bash
-   npm start
+   nodemon index.js ou node index.js
    ```
 2. Acesse a aplicação pelo navegador:
 
    ```
-   http://localhost:3000
+   http://localhost:8080
    ```
 
 ### 🧑‍💻 Uso
