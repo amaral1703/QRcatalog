@@ -46,7 +46,8 @@
         <!-- Catalog Section -->
         <div class="container mt-4">
             <h2>Product Catalog</h2>
-            <div class="row" id="catalog-items">
+            <!-- Use g-4 para criar gutters iguais em todas as direções -->
+            <div class="row g-4" id="catalog-items">
                 <% if (products.length === 0) { %>
                     <div class="col-md-12">
                         <div class="alert alert-info text-center" role="alert">
@@ -55,22 +56,24 @@
                     </div>
                 <% } else { %>
                     <% products.forEach(function(product) { %>
+                        <!-- Remove mb-4 pois o g-4 já cuida do espaçamento -->
                         <div class="col-md-4">
-                            <div class="card mb-4">
-                                <!-- <img src="<%= product.image %>" class="card-img-top" alt="<%= product.name %>"> -->
-                                <div class="card-body">
-                                    <h5 class="card-title">
-                                        <%= product.name %>
-                                    </h5>
-                                    <p class="card-text">Price: $<%= product.price %>
-                                    </p>
-                                    <p class="card-text">Description: <%= product.description %>
-                                    </p>
-                                    <form action="/generateqr/<%= product.id %>" method="post">
-                                        <input type="hidden" name="productId" value="<%= product.id %>">
-                                        <button type="submit" class="btn btn-primary">Generate QR Code</button>
-                                        <a href="/products/edit/<%= product.id %>" class="btn btn-primary">Edit Product</a>
-                                    </form>
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0"><%= product.name %></h5>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <p class="card-text"><strong>Price:</strong> $<%= product.price %></p>
+                                    <p class="card-text"><strong>Description:</strong> <%= product.description %></p>
+                                    <div class="mt-auto">
+                                        <form action="/generateqr/<%= product.id %>" method="post">
+                                            <input type="hidden" name="productId" value="<%= product.id %>">
+                                            <div class="d-flex gap-2">
+                                                <button type="submit" class="btn btn-primary"><i class="bi bi-qr-code"></i> QR Code</button>
+                                                <a href="/products/edit/<%= product.id %>" class="btn btn-outline-primary"><i class="bi bi-pencil"></i> Edit</a>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

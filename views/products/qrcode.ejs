@@ -14,6 +14,7 @@
                 </div>
                 <div class="card-body">
                     <input type="hidden" id="qrText" value="<%= product.qr_text %>">
+                    <code class="text-dark"><%= product.qr_text %></code>
                     <img id="qrCodeImage" src="<%= qrCode %>" alt="QR Code" class="img-fluid mb-3">
                     <div class="d-flex justify-content-center">
                         <a id="downloadQrCode" href="<%= qrCode %>" download="<%= product.sku %>.png" class="btn btn-success me-2">Download QR Code</a>
